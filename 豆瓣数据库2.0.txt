@@ -1,0 +1,85 @@
+一般设置为nvarchar(50),评论300，电影简介2000
+中文电影原名就是中文，中文名属性作为外文电影的译名
+
+
+userinfo 用户表
+userid			//用户id	key
+username		//用户名（账户）
+password		//用户密码
+nickname		//昵称
+email 			//用户邮箱
+areacode		//区号
+phone 			//用户电话(唯一)
+wechat			//微信号
+weibo			//微博号
+qq				//qq
+image			//头像
+
+movieinfo 电影表
+movieid			//电影id	key
+chinesename		//中文名
+name			//电影原名
+country			//制片国家/地区
+language		//语言
+chinadate		//中国大陆上映日期
+date			//制片地上映日期
+time			//片长
+othername		//别名
+IMDb			//IMDb链接
+profile			//电影简介
+image			//海报
+
+movietype 电影类型关联表
+movieid 		//电影id	key
+typeid			//类型id	key
+
+typeinfo 类型表
+typeid			//类型id	key
+typename		//类型
+
+cast 演职员表
+castid			//演职员表id	key
+movieid			//电影id	key
+actorid			//影人id    key
+role			//角色
+
+actorinfo 影人表
+actorid	   		//影人id      key
+chinesename		//中文名
+name 			//外文名
+IMDbid 			//IMDb编号
+sex				//性别
+birthday		//出生日期
+profile			//影人简介
+image			//头像
+
+moviecomment 评论表
+commentid		//评论id 		key
+userid			//评论人id	
+moviecommentid	/评论电影id	
+score			//评分
+content 		//评论内容（count content！=null）
+likecount		//点赞数	0
+date			//评论日期 		default:auto
+device			//评论设备（android、iphone、默认pc）
+type			//评论类型（想看、在看、默认看过）
+
+topicinfo 话题表
+topicid			//话题id	key
+topic 			//话题标题
+count 			//浏览次数	0
+
+moviereview 影评表
+moviereviewid	//影评id    key
+topicid			//话题id
+userid			//影评人id
+createtime		//创建时间	default:auto
+content 		//影评内容
+likecount 		//有用数	0
+unlikecount		//没用数	0
+
+moviereviewcomment 影评评论
+moviereviewcommentid	//影评评论id	key
+moviereviewid			//影评id
+userid					//评论人id
+createtime				//评论影评时间	default:auto
