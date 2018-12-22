@@ -1,6 +1,10 @@
 一般设置为nvarchar(50),评论300，电影简介2000
-中文电影原名就是中文，中文名属性作为外文电影的译名
-
+中文电影原名就是中文，chinesename作为外文电影的译名
+只在大陆上映的电影制片地上映时间就是大陆上映时间，chinadate在其他情况下非空
+图片都用nvarchar(100);允许为空
+影人出生日期允许为空？
+计数类型默认值均为0
+日期类型除影人出生日期外默认均为当前日期
 
 userinfo 用户表
 userid			//用户id	key
@@ -56,9 +60,9 @@ image			//头像
 moviecomment 评论表
 commentid		//评论id 		key
 userid			//评论人id	
-moviecommentid	/评论电影id	
+movieid			//评论电影id	
 score			//评分
-content 		//评论内容（count content！=null）
+commentcontent 		//评论内容（count content！=null）
 likecount		//点赞数	0
 date			//评论日期 		default:auto
 device			//评论设备（android、iphone、默认pc）
@@ -74,7 +78,7 @@ moviereviewid	//影评id    key
 topicid			//话题id
 userid			//影评人id
 createtime		//创建时间	default:auto
-content 		//影评内容
+reviewcontent 		//影评内容
 likecount 		//有用数	0
 unlikecount		//没用数	0
 
