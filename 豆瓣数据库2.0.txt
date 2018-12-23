@@ -87,3 +87,4 @@ moviereviewcommentid	//影评评论id	key
 moviereviewid			//影评id
 userid					//评论人id
 createtime				//评论影评时间	default:auto
+rccontent				//影评评论内容
