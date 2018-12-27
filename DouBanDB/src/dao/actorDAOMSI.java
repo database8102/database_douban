@@ -42,7 +42,7 @@ public class actorDAOMSI extends DAObase implements actorDAO {
 	 * @param actor 传入要更新的actor
 	 * @return 从数据库更新的记录数--如果更新了一条记录就返回1，若是没有成功更新则返回0
 	 */
-	private static final String updateActor_SQL = "UPDATE actorinfo SET chinesename =?,name =?,IMDbid =?,sex =?,birthday =?,profile =?,image =?";
+	private static final String updateActor_SQL = "UPDATE actorinfo SET chinesename =?,name =?,IMDbid =?,sex =?,birthday =?,profile =?,image =? WHERE actorid =?";
 	@Override
 	public int updateActor(actor actor) throws SQLException {
 		int i = 0;
@@ -57,6 +57,7 @@ public class actorDAOMSI extends DAObase implements actorDAO {
 		ps.setString(5, actor.getBirthday());
 		ps.setString(6, actor.getProfile());
 		ps.setString(7, actor.getImage());
+		ps.setInt(8, actor.getActorid());
 		i = ps.executeUpdate();
 		ps.close();
 		conn.close();

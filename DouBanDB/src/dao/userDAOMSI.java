@@ -46,7 +46,7 @@ public class userDAOMSI extends DAObase implements userDAO {
 	 * @param user 传入要更新的user
 	 * @return 从数据库更新的记录数--如果更新了一条记录就返回1，若是没有成功更新则返回0
 	 */
-	private static final String updateUser_SQL = "UPDATE userinfo SET username =?,password =?,nickname =?,email =?,areacode =?,phone =?,wechat =?,weibo =?,qq =?,image =?";
+	private static final String updateUser_SQL = "UPDATE userinfo SET username =?,password =?,nickname =?,email =?,areacode =?,phone =?,wechat =?,weibo =?,qq =?,image =? WHERE userid =?";
 	@Override
 	public int updateUser(user user) throws SQLException{
 		int i = 0;
@@ -64,6 +64,7 @@ public class userDAOMSI extends DAObase implements userDAO {
 		ps.setString(8, user.getWeibo());
 		ps.setString(9, user.getQq());
 		ps.setString(10, user.getImage());
+		ps.setInt(11, user.getUserid());
 		i = ps.executeUpdate();
 		ps.close();
 		conn.close();
@@ -93,7 +94,7 @@ public class userDAOMSI extends DAObase implements userDAO {
 	/**
 	 * 根据userid的唯一查询
 	 * @param userid 通过userid查询数据库
-	 * @return Users的一个实例化对象,如果查找到了就返回的是数据库中的一条记录，否则就是null
+	 * @return user的一个实例化对象,如果查找到了就返回的是数据库中的一条记录，否则就是null
 	 */
 	private static final String getUserById_SQL = "SELECT * FROM userinfo WHERE userid =?";
 	@Override
@@ -127,7 +128,7 @@ public class userDAOMSI extends DAObase implements userDAO {
 
 	/**
 	 * 查询所有user
-	 * @return Users的一个List对象,如果查找到了就返回的是数据库中的一条或多条记录，否则就是List为空
+	 * @return user的一个List对象,如果查找到了就返回的是数据库中的一条或多条记录，否则就是List为空
 	 */
 	private static final String getAllUser_SQL = "SELECT * FROM userinfo ";
 	@Override
@@ -163,7 +164,7 @@ public class userDAOMSI extends DAObase implements userDAO {
 	/**
 	 * 根据email的唯一查询
 	 * @param email 通过email查询数据库
-	 * @return Users的一个实例化对象,如果查找到了就返回的是数据库中的一条记录，否则就是null
+	 * @return user的一个实例化对象,如果查找到了就返回的是数据库中的一条记录，否则就是null
 	 */
 	private static final String getUserByEmail_SQL = "SELECT * FROM userinfo WHERE email =?";
 	@Override
