@@ -4,7 +4,7 @@ public class Actor {
 	private int actorid;
 	private String chinesename;
 	private String name;
-	private int IMDbid;
+	private String IMDbid;
 	private String sex;
 	private String birthday;
 	private String profile;
@@ -29,10 +29,10 @@ public class Actor {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getIMDbid() {
+	public String getIMDbid() {
 		return IMDbid;
 	}
-	public void setIMDbid(int iMDbid) {
+	public void setIMDbid(String iMDbid) {
 		IMDbid = iMDbid;
 	}
 	public String getSex() {

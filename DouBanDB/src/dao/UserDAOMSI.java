@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import bean.User;
 
@@ -131,9 +130,8 @@ public class UserDAOMSI extends DAOBase implements UserDAO {
 	 */
 	private static final String getAllUser_SQL = "SELECT * FROM userinfo ";
 	@Override
-	public List<User> getAllUser() throws SQLException{
-		List<User> userList=new ArrayList<User>();
-		User user = new User();
+	public ArrayList<User> getAllUser() throws SQLException{
+		ArrayList<User> userList=new ArrayList<User>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -141,6 +139,7 @@ public class UserDAOMSI extends DAOBase implements UserDAO {
 		ps = conn.prepareStatement(getAllUser_SQL);
 		rs = ps.executeQuery();
 		while(rs.next()) {
+			User user = new User();
 			user.setUserid(rs.getInt("userid"));
 			user.setUsername(rs.getString("username"));
 			user.setPassword(rs.getString("password"));

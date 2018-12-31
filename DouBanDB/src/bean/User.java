@@ -13,7 +13,40 @@ public class User {
 	private String qq;
 	private String image;
 	
+	public User(){}
 	
+	public User(String username, String password, String nickname,
+			String email, String areacode, String phone, String wechat,
+			String weibo, String qq, String image) {
+		this.username = username;
+		this.password = password;
+		this.nickname = nickname;
+		this.email = email;
+		this.areacode = areacode;
+		this.phone = phone;
+		this.wechat = wechat;
+		this.weibo = weibo;
+		this.qq = qq;
+		this.image = image;
+	}
+
+	public User(int userid, String username, String password, String nickname,
+			String email, String areacode, String phone, String wechat,
+			String weibo, String qq, String image) {
+		super();
+		this.userid = userid;
+		this.username = username;
+		this.password = password;
+		this.nickname = nickname;
+		this.email = email;
+		this.areacode = areacode;
+		this.phone = phone;
+		this.wechat = wechat;
+		this.weibo = weibo;
+		this.qq = qq;
+		this.image = image;
+	}
+
 	public int getUserid() {
 		return userid;
 	}

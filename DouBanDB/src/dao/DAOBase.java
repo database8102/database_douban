@@ -10,9 +10,9 @@ public class DAOBase implements DAO {
 	public Connection getConnection() {
 		Connection conn = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://115.28.165.3:3306/Dva";
-			conn = DriverManager.getConnection(url,"dva","123456");
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			String url = "jdbc:sqlserver://127.0.0.1:1433;databaseName=douban8102";
+			conn = DriverManager.getConnection(url,"sa","123");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
