@@ -10,7 +10,33 @@ public class Actor {
 	private String profile;
 	private String image;
 	
+	public Actor(){}
 	
+	public Actor(String chinesename, String name, String iMDbid, String sex,
+			String birthday, String profile, String image) {
+		super();
+		this.chinesename = chinesename;
+		this.name = name;
+		IMDbid = iMDbid;
+		this.sex = sex;
+		this.birthday = birthday;
+		this.profile = profile;
+		this.image = image;
+	}
+	
+	public Actor(int actorid, String chinesename, String name, String iMDbid,
+			String sex, String birthday, String profile, String image) {
+		super();
+		this.actorid = actorid;
+		this.chinesename = chinesename;
+		this.name = name;
+		IMDbid = iMDbid;
+		this.sex = sex;
+		this.birthday = birthday;
+		this.profile = profile;
+		this.image = image;
+	}
+
 	public int getActorid() {
 		return actorid;
 	}

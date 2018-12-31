@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import bean.Actor;
 
@@ -122,9 +121,8 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 	 */
 	private static final String getAllActor_SQL = "SELECT * FROM actorinfo ";
 	@Override
-	public List<Actor> getAllActor() throws SQLException {
-		List<Actor> all = new ArrayList<Actor>();
-		Actor actor = new Actor();
+	public ArrayList<Actor> getAllActor() throws SQLException {
+		ArrayList<Actor> all = new ArrayList<Actor>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -132,6 +130,7 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 		ps = conn.prepareStatement(getAllActor_SQL);
 		rs = ps.executeQuery();
 		while(rs.next()) {
+			Actor actor = new Actor();
 			actor.setActorid(rs.getInt("actorid"));
 			actor.setChinesename(rs.getString("chinesename"));
 			actor.setName(rs.getString("name"));
