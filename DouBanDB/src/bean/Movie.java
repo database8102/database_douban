@@ -14,7 +14,43 @@ public class Movie {
 	private String profile;
 	private String image;
 	
+	public Movie(){}
 	
+	public Movie(String chinesename, String name, String country,
+			String language, String chinadate, String date, int time,
+			String othername, String iMDb, String profile, String image) {
+		super();
+		this.chinesename = chinesename;
+		this.name = name;
+		this.country = country;
+		this.language = language;
+		this.chinadate = chinadate;
+		this.date = date;
+		this.time = time;
+		this.othername = othername;
+		IMDb = iMDb;
+		this.profile = profile;
+		this.image = image;
+	}
+
+	public Movie(int movieid, String chinesename, String name, String country,
+			String language, String chinadate, String date, int time,
+			String othername, String iMDb, String profile, String image) {
+		super();
+		this.movieid = movieid;
+		this.chinesename = chinesename;
+		this.name = name;
+		this.country = country;
+		this.language = language;
+		this.chinadate = chinadate;
+		this.date = date;
+		this.time = time;
+		this.othername = othername;
+		IMDb = iMDb;
+		this.profile = profile;
+		this.image = image;
+	}
+
 	public int getMovieid() {
 		return movieid;
 	}

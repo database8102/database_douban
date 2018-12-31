@@ -25,7 +25,7 @@ public class UserDAOTest {
 
 	@Test
 	public void testUpdateUser() {
-		User testUser=new User(6,"updatetest","123","updatetest","test@qq.com","0086","12345678901","wx_6666",null,null,null); 
+		User testUser=new User(11,"updatetest","123","updatetest","test@qq.com","0086","12345678901","wx_6666",null,null,null); 
 		UserDAOMSI dao=new UserDAOMSI();
 		try {
 			dao.updateUser(testUser);
@@ -38,7 +38,7 @@ public class UserDAOTest {
 	public void testDeleteUser() {
 		UserDAOMSI dao=new UserDAOMSI();
 		try {
-			dao.deleteUser(6);
+			dao.deleteUser(11);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
