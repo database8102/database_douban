@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DAObase implements DAO {
+public class DAOBase implements DAO {
 
 	@Override
 	public Connection getConnection() {

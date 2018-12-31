@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.type;
+import bean.Type;
 
-public class typeDAOMSI extends DAObase implements typeDAO {
+public class TypeDAOMSI extends DAOBase implements TypeDAO {
 
 	/**
 	 * ≤Â»Îtype
@@ -18,7 +18,7 @@ public class typeDAOMSI extends DAObase implements typeDAO {
 	 */
 	private static final String insertType_SQL = "INSERT INTO typeinfo(typename) VALUES(?)";
 	@Override
-	public int insertType(type type) throws SQLException {
+	public int insertType(Type type) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -38,7 +38,7 @@ public class typeDAOMSI extends DAObase implements typeDAO {
 	 */
 	private static final String updateType_SQL = "UPDATE typeinfo SET typename =? WHERE typeid =?";
 	@Override
-	public int updateType(type type) throws SQLException {
+	public int updateType(Type type) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -79,8 +79,8 @@ public class typeDAOMSI extends DAObase implements typeDAO {
 	 */
 	private static final String getTypeById_SQL = "SELECT * FROM typeinfo WHERE typeid =?";
 	@Override
-	public type getTypeById(int typeid) throws SQLException {
-		type type = new type();
+	public Type getTypeById(int typeid) throws SQLException {
+		Type type = new Type();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -104,9 +104,9 @@ public class typeDAOMSI extends DAObase implements typeDAO {
 	 */
 	private static final String getAllType_SQL = "SELECT * FROM typeinfo ";
 	@Override
-	public List<type> getAllType() throws SQLException {
-		List<type> typeList=new ArrayList<type>();
-		type type = new type();
+	public List<Type> getAllType() throws SQLException {
+		List<Type> typeList=new ArrayList<Type>();
+		Type type = new Type();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

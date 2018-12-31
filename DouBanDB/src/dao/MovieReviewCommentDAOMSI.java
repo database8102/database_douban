@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.moviereviewcomment;
+import bean.MovieReviewComment;
 
-public class moviereviewcommentDAOMSI extends DAObase implements moviereviewcommentDAO {
+public class MovieReviewCommentDAOMSI extends DAOBase implements MovieReviewCommentDAO {
 
 	/**
 	 * ≤Â»Îmoviereviewcomment
@@ -18,7 +18,7 @@ public class moviereviewcommentDAOMSI extends DAObase implements moviereviewcomm
 	 */
 	private static final String insertMoviereviewcomment_SQL = "INSERT INTO moviereviewcomment(moviereviewid,userid,createtime) VALUES(?,?,?)";
 	@Override
-	public int insertMoviereviewcomment(moviereviewcomment moviereviewcomment) throws SQLException {
+	public int insertMoviereviewcomment(MovieReviewComment moviereviewcomment) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -40,7 +40,7 @@ public class moviereviewcommentDAOMSI extends DAObase implements moviereviewcomm
 	 */
 	private static final String updateMoviereviewcomment_SQL = "UPDATE moviereviewcomment SET moviereviewid =?,userid =?,createtime =? WHERE moviereviewcommentid =?";
 	@Override
-	public int updateMoviereviewcomment(moviereviewcomment moviereviewcomment) throws SQLException {
+	public int updateMoviereviewcomment(MovieReviewComment moviereviewcomment) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -83,8 +83,8 @@ public class moviereviewcommentDAOMSI extends DAObase implements moviereviewcomm
 	 */
 	private static final String getMoviereviewcommentById_SQL = "SELECT * FROM moviereviewcomment WHERE moviereviewcommentid =?";
 	@Override
-	public moviereviewcomment getMoviereviewcommentById(int moviereviewcommentid) throws SQLException {
-		moviereviewcomment moviereviewcomment = new moviereviewcomment();
+	public MovieReviewComment getMoviereviewcommentById(int moviereviewcommentid) throws SQLException {
+		MovieReviewComment moviereviewcomment = new MovieReviewComment();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -111,9 +111,9 @@ public class moviereviewcommentDAOMSI extends DAObase implements moviereviewcomm
 	 */
 	private static final String getMoviereviewcommentByMovieReviewidId_SQL = "SELECT * FROM moviereviewcomment WHERE moviereviewid =?";
 	@Override
-	public List<moviereviewcomment> getMoviereviewcommentByMovieReviewidId(int moviereviewid) throws SQLException {
-		List<moviereviewcomment> all = new ArrayList<moviereviewcomment>();
-		moviereviewcomment moviereviewcomment = new moviereviewcomment();
+	public List<MovieReviewComment> getMoviereviewcommentByMovieReviewidId(int moviereviewid) throws SQLException {
+		List<MovieReviewComment> all = new ArrayList<MovieReviewComment>();
+		MovieReviewComment moviereviewcomment = new MovieReviewComment();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -141,9 +141,9 @@ public class moviereviewcommentDAOMSI extends DAObase implements moviereviewcomm
 	 */
 	private static final String getMoviereviewcommentByUserId_SQL = "SELECT * FROM moviereviewcomment WHERE userid =?";
 	@Override
-	public List<moviereviewcomment> getMoviereviewcommentByUserId(int userid) throws SQLException {
-		List<moviereviewcomment> all = new ArrayList<moviereviewcomment>();
-		moviereviewcomment moviereviewcomment = new moviereviewcomment();
+	public List<MovieReviewComment> getMoviereviewcommentByUserId(int userid) throws SQLException {
+		List<MovieReviewComment> all = new ArrayList<MovieReviewComment>();
+		MovieReviewComment moviereviewcomment = new MovieReviewComment();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

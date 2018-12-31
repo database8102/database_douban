@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.moviereview;
+import bean.MovieReview;
 
-public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
+public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 
 	/**
 	 * ≤Â»Îmoviereview
@@ -18,7 +18,7 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 	 */
 	private static final String insertMoviereview_SQL = "INSERT INTO moviereview(topicid,userid,createtime,reviewcontent,likecount,unlikecount) VALUES(?,?,?,?,?,?)";
 	@Override
-	public int insertMoviereview(moviereview moviereview) throws SQLException {
+	public int insertMoviereview(MovieReview moviereview) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -29,7 +29,7 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 		ps.setString(3, moviereview.getCreatetime());
 		ps.setString(4, moviereview.getReviewcontent());
 		ps.setInt(5, moviereview.getLikecount());
-		ps.setInt(6, moviereview.getUnlikecount());
+		ps.setInt(6, moviereview.getDislikecount());
 		i = ps.executeUpdate();
 		ps.close();
 		conn.close();
@@ -43,7 +43,7 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 	 */
 	private static final String updateMoviereview_SQL = "UPDATE moviereview SET topicid =?,userid =?,createtime =?,reviewcontent =?,likecount =?,unlikecount =? WHERE moviereviewid =?";
 	@Override
-	public int updateMoviereview(moviereview moviereview) throws SQLException {
+	public int updateMoviereview(MovieReview moviereview) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -54,7 +54,7 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 		ps.setString(3, moviereview.getCreatetime());
 		ps.setString(4, moviereview.getReviewcontent());
 		ps.setInt(5, moviereview.getLikecount());
-		ps.setInt(6, moviereview.getUnlikecount());
+		ps.setInt(6, moviereview.getDislikecount());
 		ps.setInt(7, moviereview.getMoviereviewid());
 		i = ps.executeUpdate();
 		ps.close();
@@ -89,8 +89,8 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 	 */
 	private static final String getMoviereviewById_SQL = "SELECT * FROM moviereview WHERE moviereviewid =?";
 	@Override
-	public moviereview getMoviereviewById(int moviereviewid) throws SQLException {
-		moviereview moviereview = new moviereview();
+	public MovieReview getMoviereviewById(int moviereviewid) throws SQLException {
+		MovieReview moviereview = new MovieReview();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -105,7 +105,7 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 			moviereview.setCreatetime(rs.getString("createtime"));
 			moviereview.setReviewcontent(rs.getString("reviewcontent"));
 			moviereview.setLikecount(rs.getInt("likecount"));
-			moviereview.setUnlikecount(rs.getInt("unlikecount"));
+			moviereview.setDislikecount(rs.getInt("unlikecount"));
 		}
 		rs.close();
 		ps.close();
@@ -120,9 +120,9 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 	 */
 	private static final String getMoviereviewByTopicId_SQL = "SELECT * FROM moviereview WHERE topicid =?";
 	@Override
-	public List<moviereview> getMoviereviewByTopicId(int topicid) throws SQLException {
-		List<moviereview> all = new ArrayList<moviereview>();
-		moviereview moviereview = new moviereview();
+	public List<MovieReview> getMoviereviewByTopicId(int topicid) throws SQLException {
+		List<MovieReview> all = new ArrayList<MovieReview>();
+		MovieReview moviereview = new MovieReview();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -137,7 +137,7 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 			moviereview.setCreatetime(rs.getString("createtime"));
 			moviereview.setReviewcontent(rs.getString("reviewcontent"));
 			moviereview.setLikecount(rs.getInt("likecount"));
-			moviereview.setUnlikecount(rs.getInt("unlikecount"));
+			moviereview.setDislikecount(rs.getInt("unlikecount"));
 			all.add(moviereview);
 		}
 		rs.close();
@@ -153,9 +153,9 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 	 */
 	private static final String getMoviereviewByUserId_SQL = "SELECT * FROM moviereview WHERE userid =?";
 	@Override
-	public List<moviereview> getMoviereviewByUserId(int userid) throws SQLException {
-		List<moviereview> all = new ArrayList<moviereview>();
-		moviereview moviereview = new moviereview();
+	public List<MovieReview> getMoviereviewByUserId(int userid) throws SQLException {
+		List<MovieReview> all = new ArrayList<MovieReview>();
+		MovieReview moviereview = new MovieReview();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -170,7 +170,7 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 			moviereview.setCreatetime(rs.getString("createtime"));
 			moviereview.setReviewcontent(rs.getString("reviewcontent"));
 			moviereview.setLikecount(rs.getInt("likecount"));
-			moviereview.setUnlikecount(rs.getInt("unlikecount"));
+			moviereview.setDislikecount(rs.getInt("unlikecount"));
 			all.add(moviereview);
 		}
 		rs.close();

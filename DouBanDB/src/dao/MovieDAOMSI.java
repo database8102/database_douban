@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.movie;
+import bean.Movie;
 
-public class movieDAOMSI extends DAObase implements movieDAO {
+public class MovieDAOMSI extends DAOBase implements MovieDAO {
 
 	/**
 	 * ≤Â»Îmovie
@@ -18,7 +18,7 @@ public class movieDAOMSI extends DAObase implements movieDAO {
 	 */
 	private static final String insertMovie_SQL = "INSERT INTO movieinfo(chinesename,name,country,language,chinadate,date,time,othername,IMDb,profile,image) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 	@Override
-	public int insertMovie(movie movie) throws SQLException {
+	public int insertMovie(Movie movie) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -32,7 +32,7 @@ public class movieDAOMSI extends DAObase implements movieDAO {
 		ps.setString(6, movie.getDate());
 		ps.setInt(7, movie.getTime());
 		ps.setString(8, movie.getOthername());
-		ps.setString(9, movie.getImdb());
+		ps.setString(9, movie.getIMDb());
 		ps.setString(10, movie.getProfile());
 		ps.setString(11, movie.getImage());
 		i = ps.executeUpdate();
@@ -48,7 +48,7 @@ public class movieDAOMSI extends DAObase implements movieDAO {
 	 */
 	private static final String updateMovie_SQL = "UPDATE movieinfo SET chinesename =?,name =?,country =?,language =?,chinadate =?,date =?,time =?,othername =?,IMDb =?,profile =?,image =? WHERE movieid =?";
 	@Override
-	public int updateMovie(movie movie) throws SQLException {
+	public int updateMovie(Movie movie) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -62,7 +62,7 @@ public class movieDAOMSI extends DAObase implements movieDAO {
 		ps.setString(6, movie.getDate());
 		ps.setInt(7, movie.getTime());
 		ps.setString(8, movie.getOthername());
-		ps.setString(9, movie.getImdb());
+		ps.setString(9, movie.getIMDb());
 		ps.setString(10, movie.getProfile());
 		ps.setString(11, movie.getImage());
 		ps.setInt(12, movie.getMovieid());
@@ -99,8 +99,8 @@ public class movieDAOMSI extends DAObase implements movieDAO {
 	 */
 	private static final String getMovieById_SQL = "SELECT * FROM movieinfo WHERE movieid =?";
 	@Override
-	public movie getMovieById(int movieid) throws SQLException {
-		movie movie = new movie();
+	public Movie getMovieById(int movieid) throws SQLException {
+		Movie movie = new Movie();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -118,7 +118,7 @@ public class movieDAOMSI extends DAObase implements movieDAO {
 			movie.setDate(rs.getString("date"));
 			movie.setTime(rs.getInt("time"));
 			movie.setOthername(rs.getString("othername"));
-			movie.setImdb(rs.getString("IMDb"));
+			movie.setIMDb(rs.getString("IMDb"));
 			movie.setProfile(rs.getString("profile"));
 			movie.setImage(rs.getString("image"));
 		}
@@ -134,9 +134,9 @@ public class movieDAOMSI extends DAObase implements movieDAO {
 	 */
 	private static final String getAllMovie_SQL = "SELECT * FROM movieinfo ";
 	@Override
-	public List<movie> getAllMovie() throws SQLException {
-		List<movie> movieList=new ArrayList<movie>();
-		movie movie = new movie();
+	public List<Movie> getAllMovie() throws SQLException {
+		List<Movie> movieList=new ArrayList<Movie>();
+		Movie movie = new Movie();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -153,7 +153,7 @@ public class movieDAOMSI extends DAObase implements movieDAO {
 			movie.setDate(rs.getString("date"));
 			movie.setTime(rs.getInt("time"));
 			movie.setOthername(rs.getString("othername"));
-			movie.setImdb(rs.getString("IMDb"));
+			movie.setIMDb(rs.getString("IMDb"));
 			movie.setProfile(rs.getString("profile"));
 			movie.setImage(rs.getString("image"));
 			movieList.add(movie);

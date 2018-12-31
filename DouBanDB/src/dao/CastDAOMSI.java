@@ -7,9 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.cast;
+import bean.Cast;
 
-public class castDAOMSI extends DAObase implements castDAO {
+
+public class CastDAOMSI extends DAOBase implements CastDAO {
 
 	/**
 	 * ≤Â»Îcast
@@ -18,7 +19,7 @@ public class castDAOMSI extends DAObase implements castDAO {
 	 */
 	private static final String insertCast_SQL = "INSERT INTO cast(movieid,actorid,role) VALUES(?,?,?)";
 	@Override
-	public int insertCast(cast cast) throws SQLException {
+	public int insertCast(Cast cast) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -40,7 +41,7 @@ public class castDAOMSI extends DAObase implements castDAO {
 	 */
 	private static final String updateCast_SQL = "UPDATE cast SET movieid =?,actorid =?,role =? WHERE castid =?";
 	@Override
-	public int updateCast(cast cast) throws SQLException {
+	public int updateCast(Cast cast) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -83,9 +84,9 @@ public class castDAOMSI extends DAObase implements castDAO {
 	 */
 	private static final String getCastByMovieId_SQL = "SELECT * FROM cast WHERE movieid =?";
 	@Override
-	public List<cast> getCastByMovieId(int movieid) throws SQLException {
-		List<cast> all = new ArrayList<cast>();
-		cast cast = new cast();
+	public List<Cast> getCastByMovieId(int movieid) throws SQLException {
+		List<Cast> all = new ArrayList<Cast>();
+		Cast cast = new Cast();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -113,9 +114,9 @@ public class castDAOMSI extends DAObase implements castDAO {
 	 */
 	private static final String getCastByActorId_SQL = "SELECT * FROM cast WHERE actorid =?";
 	@Override
-	public List<cast> getCastByActorId(int actorid) throws SQLException {
-		List<cast> all = new ArrayList<cast>();
-		cast cast = new cast();
+	public List<Cast> getCastByActorId(int actorid) throws SQLException {
+		List<Cast> all = new ArrayList<Cast>();
+		Cast cast = new Cast();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
