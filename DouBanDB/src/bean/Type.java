@@ -4,6 +4,18 @@ public class Type {
 	private int typeid;
 	private String typename;
 	
+	public Type(){}
+	
+	public Type(String typename) {
+		super();
+		this.typename = typename;
+	}
+	
+	public Type(int typeid, String typename) {
+		super();
+		this.typeid = typeid;
+		this.typename = typename;
+	}
 	
 	public int getTypeid() {
 		return typeid;
