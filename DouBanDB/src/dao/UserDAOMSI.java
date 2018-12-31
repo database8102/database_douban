@@ -10,7 +10,7 @@ import java.util.List;
 
 import member.user;
 
-public class userDAOMSI extends DAObase implements userDAO {
+public class UserDAOMSI extends DAOBase implements UserDAO {
 
 	/**
 	 * ≤Â»Îuser
@@ -19,7 +19,7 @@ public class userDAOMSI extends DAObase implements userDAO {
 	 */
 	private static final String insertUser_SQL = "INSERT INTO userinfo(username,password,nickname,email,areacode,phone,wechat,weibo,qq,image) VALUES(?,?,?,?,?,?,?,?,?,?)";
 	@Override
-	public int insertUser(user user) throws SQLException{
+	public int insertUser(User user) throws SQLException{
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -48,7 +48,7 @@ public class userDAOMSI extends DAObase implements userDAO {
 	 */
 	private static final String updateUser_SQL = "UPDATE userinfo SET username =?,password =?,nickname =?,email =?,areacode =?,phone =?,wechat =?,weibo =?,qq =?,image =? WHERE userid =?";
 	@Override
-	public int updateUser(user user) throws SQLException{
+	public int updateUser(User user) throws SQLException{
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -98,8 +98,8 @@ public class userDAOMSI extends DAObase implements userDAO {
 	 */
 	private static final String getUserById_SQL = "SELECT * FROM userinfo WHERE userid =?";
 	@Override
-	public user getUserById(int userid) throws SQLException{
-		user user = new user();
+	public User getUserById(int userid) throws SQLException{
+		User user = new User();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -132,9 +132,9 @@ public class userDAOMSI extends DAObase implements userDAO {
 	 */
 	private static final String getAllUser_SQL = "SELECT * FROM userinfo ";
 	@Override
-	public List<user> getAllUser() throws SQLException{
-		List<user> userList=new ArrayList<user>();
-		user user = new user();
+	public List<User> getAllUser() throws SQLException{
+		List<User> userList=new ArrayList<User>();
+		User user = new User();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -168,8 +168,8 @@ public class userDAOMSI extends DAObase implements userDAO {
 	 */
 	private static final String getUserByEmail_SQL = "SELECT * FROM userinfo WHERE email =?";
 	@Override
-	public user getUserByEmail(String email) throws SQLException{
-		user user = new user();
+	public User getUserByEmail(String email) throws SQLException{
+		User user = new User();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

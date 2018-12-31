@@ -9,7 +9,7 @@ import java.util.List;
 
 import member.topic;
 
-public class topicDAOMSI extends DAObase implements topicDAO {
+public class TopicDAOMSI extends DAOBase implements TopicDAO {
 
 	/**
 	 * ≤Â»Îtopic
@@ -18,7 +18,7 @@ public class topicDAOMSI extends DAObase implements topicDAO {
 	 */
 	private static final String insertTopic_SQL = "INSERT INTO topicinfo(topic,count) VALUES(?,?)";
 	@Override
-	public int insertTopic(topic topic) throws SQLException {
+	public int insertTopic(Topic topic) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -39,7 +39,7 @@ public class topicDAOMSI extends DAObase implements topicDAO {
 	 */
 	private static final String updateTopic_SQL = "UPDATE topicinfo SET topic =?,count =? WHERE topicid =?";
 	@Override
-	public int updateTopic(topic topic) throws SQLException {
+	public int updateTopic(Topic topic) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -81,8 +81,8 @@ public class topicDAOMSI extends DAObase implements topicDAO {
 	 */
 	private static final String getTopicById_SQL = "SELECT * FROM topicinfo WHERE topicid =?";
 	@Override
-	public topic getTopicById(int topicid) throws SQLException {
-		topic topic = new topic();
+	public Topic getTopicById(int topicid) throws SQLException {
+		Topic topic = new Topic();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -107,9 +107,9 @@ public class topicDAOMSI extends DAObase implements topicDAO {
 	 */
 	private static final String getAllTopic_SQL = "SELECT * FROM topicinfo ";
 	@Override
-	public List<topic> getAllTopic() throws SQLException {
-		List<topic> topicList=new ArrayList<topic>();
-		topic topic = new topic();
+	public List<Topic> getAllTopic() throws SQLException {
+		List<Topic> topicList=new ArrayList<Topic>();
+		Topic topic = new Topic();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

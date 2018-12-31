@@ -9,7 +9,7 @@ import java.util.List;
 
 import member.actor;
 
-public class actorDAOMSI extends DAObase implements actorDAO {
+public class ActorDAOMSI extends DAOBase implements ActorDAO {
 
 	/**
 	 * ≤Â»Îactor
@@ -18,7 +18,7 @@ public class actorDAOMSI extends DAObase implements actorDAO {
 	 */
 	private static final String insertActor_SQL = "INSERT INTO actorinfo(chinesename,name,IMDbid,sex,birthday,profile,image) VALUES(?,?,?,?,?,?,?)";
 	@Override
-	public int insertActor(actor actor) throws SQLException {
+	public int insertActor(Actor actor) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -44,7 +44,7 @@ public class actorDAOMSI extends DAObase implements actorDAO {
 	 */
 	private static final String updateActor_SQL = "UPDATE actorinfo SET chinesename =?,name =?,IMDbid =?,sex =?,birthday =?,profile =?,image =? WHERE actorid =?";
 	@Override
-	public int updateActor(actor actor) throws SQLException {
+	public int updateActor(Actor actor) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -91,8 +91,8 @@ public class actorDAOMSI extends DAObase implements actorDAO {
 	 */
 	private static final String getActorById_SQL = "SELECT * FROM actorinfo WHERE actorid =?";
 	@Override
-	public actor getActorById(int actorid) throws SQLException {
-		actor actor = new actor();
+	public Actor getActorById(int actorid) throws SQLException {
+		Actor actor = new actor();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -122,9 +122,9 @@ public class actorDAOMSI extends DAObase implements actorDAO {
 	 */
 	private static final String getAllActor_SQL = "SELECT * FROM actorinfo ";
 	@Override
-	public List<actor> getAllActor() throws SQLException {
-		List<actor> all = new ArrayList<actor>();
-		actor actor = new actor();
+	public List<Actor> getAllActor() throws SQLException {
+		List<Actor> all = new ArrayList<Actor>();
+		Actor actor = new Actor();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

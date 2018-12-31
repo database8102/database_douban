@@ -9,7 +9,7 @@ import java.util.List;
 
 import member.movietype;
 
-public class movietypeDAOMSI extends DAObase implements movietypeDAO {
+public class MovieTypeDAOMSI extends DAOBase implements MovieTypeDAO {
 
 	/**
 	 * ≤Â»Îmovietype
@@ -18,7 +18,7 @@ public class movietypeDAOMSI extends DAObase implements movietypeDAO {
 	 */
 	private static final String insertMovietype_SQL = "INSERT INTO movietype(movieid,typeid) VALUES(?,?)";
 	@Override
-	public int insertMovietype(movietype movietype) throws SQLException {
+	public int insertMovietype(MovieType movietype) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -39,7 +39,7 @@ public class movietypeDAOMSI extends DAObase implements movietypeDAO {
 	 */
 	private static final String updateMovietype_SQL = "UPDATE movietype SET typeid =? WHERE movieid =?";
 	@Override
-	public int updateMovietype(movietype movietype) throws SQLException {
+	public int updateMovietype(MovieType movietype) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -80,9 +80,9 @@ public class movietypeDAOMSI extends DAObase implements movietypeDAO {
 	 */
 	private static final String getMovietypeByMovieId_SQL = "SELECT * FROM movietype WHERE movieid =?";
 	@Override
-	public List<movietype> getMovietypeByMovieId(int movieid) throws SQLException {
-		List<movietype> all = new ArrayList<movietype>();
-		movietype movietype = new movietype();
+	public List<MovieType> getMovietypeByMovieId(int movieid) throws SQLException {
+		List<MovieType> all = new ArrayList<MovieType>();
+		TovieType movietype = new MovieType();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -108,9 +108,9 @@ public class movietypeDAOMSI extends DAObase implements movietypeDAO {
 	 */
 	private static final String getMovietypeByActorId_SQL = "SELECT * FROM movietype WHERE typeid =?";
 	@Override
-	public List<movietype> getMovietypeByActorId(int typeid) throws SQLException {
-		List<movietype> all = new ArrayList<movietype>();
-		movietype movietype = new movietype();
+	public List<Movietype> getMovietypeByActorId(int typeid) throws SQLException {
+		List<MovieType> all = new ArrayList<MovieType>();
+		MovieType movietype = new MovieType();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

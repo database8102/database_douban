@@ -9,7 +9,7 @@ import java.util.List;
 
 import member.moviereview;
 
-public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
+public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 
 	/**
 	 * ≤Â»Îmoviereview
@@ -18,7 +18,7 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 	 */
 	private static final String insertMoviereview_SQL = "INSERT INTO moviereview(topicid,userid,createtime,reviewcontent,likecount,unlikecount) VALUES(?,?,?,?,?,?)";
 	@Override
-	public int insertMoviereview(moviereview moviereview) throws SQLException {
+	public int insertMoviereview(MovieReview moviereview) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -43,7 +43,7 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 	 */
 	private static final String updateMoviereview_SQL = "UPDATE moviereview SET topicid =?,userid =?,createtime =?,reviewcontent =?,likecount =?,unlikecount =? WHERE moviereviewid =?";
 	@Override
-	public int updateMoviereview(moviereview moviereview) throws SQLException {
+	public int updateMoviereview(MovieReview moviereview) throws SQLException {
 		int i = 0;
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -89,8 +89,8 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 	 */
 	private static final String getMoviereviewById_SQL = "SELECT * FROM moviereview WHERE moviereviewid =?";
 	@Override
-	public moviereview getMoviereviewById(int moviereviewid) throws SQLException {
-		moviereview moviereview = new moviereview();
+	public MovieReview getMoviereviewById(int moviereviewid) throws SQLException {
+		MovieReview moviereview = new MovieReview();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -120,9 +120,9 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 	 */
 	private static final String getMoviereviewByTopicId_SQL = "SELECT * FROM moviereview WHERE topicid =?";
 	@Override
-	public List<moviereview> getMoviereviewByTopicId(int topicid) throws SQLException {
-		List<moviereview> all = new ArrayList<moviereview>();
-		moviereview moviereview = new moviereview();
+	public List<MovieReview> getMoviereviewByTopicId(int topicid) throws SQLException {
+		List<MovieReview> all = new ArrayList<MovieReview>();
+		MovieReview moviereview = new MovieReview();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -153,9 +153,9 @@ public class moviereviewDAOMSI extends DAObase implements moviereviewDAO {
 	 */
 	private static final String getMoviereviewByUserId_SQL = "SELECT * FROM moviereview WHERE userid =?";
 	@Override
-	public List<moviereview> getMoviereviewByUserId(int userid) throws SQLException {
-		List<moviereview> all = new ArrayList<moviereview>();
-		moviereview moviereview = new moviereview();
+	public List<MovieReview> getMoviereviewByUserId(int userid) throws SQLException {
+		List<MovieReview> all = new ArrayList<MovieReview>();
+		MovieReview moviereview = new MovieReview();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
