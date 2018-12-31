@@ -3,7 +3,7 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import member.topic;
+import bean.Topic;
 
 public interface TopicDAO {
 	public int insertTopic(Topic topic) throws SQLException;

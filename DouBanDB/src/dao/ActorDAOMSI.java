@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.actor;
+import bean.Actor;
 
 public class ActorDAOMSI extends DAOBase implements ActorDAO {
 
@@ -26,7 +26,7 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 		ps = conn.prepareStatement(insertActor_SQL);
 		ps.setString(1, actor.getChinesename());
 		ps.setString(2, actor.getName());
-		ps.setString(3, actor.getImdbid());
+		ps.setInt(3, actor.getIMDbid());
 		ps.setString(4, actor.getSex());
 		ps.setString(5, actor.getBirthday());
 		ps.setString(6, actor.getProfile());
@@ -52,7 +52,7 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 		ps = conn.prepareStatement(updateActor_SQL);
 		ps.setString(1, actor.getChinesename());
 		ps.setString(2, actor.getName());
-		ps.setString(3, actor.getImdbid());
+		ps.setInt(3, actor.getIMDbid());
 		ps.setString(4, actor.getSex());
 		ps.setString(5, actor.getBirthday());
 		ps.setString(6, actor.getProfile());
@@ -92,7 +92,7 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 	private static final String getActorById_SQL = "SELECT * FROM actorinfo WHERE actorid =?";
 	@Override
 	public Actor getActorById(int actorid) throws SQLException {
-		Actor actor = new actor();
+		Actor actor = new Actor();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -104,7 +104,7 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 			actor.setActorid(rs.getInt("actorid"));
 			actor.setChinesename(rs.getString("chinesename"));
 			actor.setName(rs.getString("name"));
-			actor.setImdbid(rs.getString("IMDbid"));
+			actor.setIMDbid(rs.getInt("IMDbid"));
 			actor.setSex(rs.getString("sex"));
 			actor.setBirthday(rs.getString("birthday"));
 			actor.setProfile(rs.getString("profile"));
@@ -135,7 +135,7 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 			actor.setActorid(rs.getInt("actorid"));
 			actor.setChinesename(rs.getString("chinesename"));
 			actor.setName(rs.getString("name"));
-			actor.setImdbid(rs.getString("IMDbid"));
+			actor.setIMDbid(rs.getInt("IMDbid"));
 			actor.setSex(rs.getString("sex"));
 			actor.setBirthday(rs.getString("birthday"));
 			actor.setProfile(rs.getString("profile"));

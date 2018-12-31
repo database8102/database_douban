@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.topic;
+import bean.Topic;
 
 public class TopicDAOMSI extends DAOBase implements TopicDAO {
 

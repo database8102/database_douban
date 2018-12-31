@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.movietype;
+import bean.MovieType;
 
 public class MovieTypeDAOMSI extends DAOBase implements MovieTypeDAO {
 
@@ -82,7 +82,7 @@ public class MovieTypeDAOMSI extends DAOBase implements MovieTypeDAO {
 	@Override
 	public List<MovieType> getMovietypeByMovieId(int movieid) throws SQLException {
 		List<MovieType> all = new ArrayList<MovieType>();
-		TovieType movietype = new MovieType();
+		MovieType movietype = new MovieType();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -108,7 +108,7 @@ public class MovieTypeDAOMSI extends DAOBase implements MovieTypeDAO {
 	 */
 	private static final String getMovietypeByActorId_SQL = "SELECT * FROM movietype WHERE typeid =?";
 	@Override
-	public List<Movietype> getMovietypeByActorId(int typeid) throws SQLException {
+	public List<MovieType> getMovietypeByActorId(int typeid) throws SQLException {
 		List<MovieType> all = new ArrayList<MovieType>();
 		MovieType movietype = new MovieType();
 		Connection conn = null;

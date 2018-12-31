@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.movie;
+import bean.Movie;
 
 public class MovieDAOMSI extends DAOBase implements MovieDAO {
 
@@ -32,7 +32,7 @@ public class MovieDAOMSI extends DAOBase implements MovieDAO {
 		ps.setString(6, movie.getDate());
 		ps.setInt(7, movie.getTime());
 		ps.setString(8, movie.getOthername());
-		ps.setString(9, movie.getImdb());
+		ps.setString(9, movie.getIMDb());
 		ps.setString(10, movie.getProfile());
 		ps.setString(11, movie.getImage());
 		i = ps.executeUpdate();
@@ -62,7 +62,7 @@ public class MovieDAOMSI extends DAOBase implements MovieDAO {
 		ps.setString(6, movie.getDate());
 		ps.setInt(7, movie.getTime());
 		ps.setString(8, movie.getOthername());
-		ps.setString(9, movie.getImdb());
+		ps.setString(9, movie.getIMDb());
 		ps.setString(10, movie.getProfile());
 		ps.setString(11, movie.getImage());
 		ps.setInt(12, movie.getMovieid());
@@ -118,7 +118,7 @@ public class MovieDAOMSI extends DAOBase implements MovieDAO {
 			movie.setDate(rs.getString("date"));
 			movie.setTime(rs.getInt("time"));
 			movie.setOthername(rs.getString("othername"));
-			movie.setImdb(rs.getString("IMDb"));
+			movie.setIMDb(rs.getString("IMDb"));
 			movie.setProfile(rs.getString("profile"));
 			movie.setImage(rs.getString("image"));
 		}
@@ -153,7 +153,7 @@ public class MovieDAOMSI extends DAOBase implements MovieDAO {
 			movie.setDate(rs.getString("date"));
 			movie.setTime(rs.getInt("time"));
 			movie.setOthername(rs.getString("othername"));
-			movie.setImdb(rs.getString("IMDb"));
+			movie.setIMDb(rs.getString("IMDb"));
 			movie.setProfile(rs.getString("profile"));
 			movie.setImage(rs.getString("image"));
 			movieList.add(movie);

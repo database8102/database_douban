@@ -7,7 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.cast;
+import bean.Cast;
+
 
 public class CastDAOMSI extends DAOBase implements CastDAO {
 

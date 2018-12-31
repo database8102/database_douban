@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.moviereview;
+import bean.MovieReview;
 
 public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 
@@ -29,7 +29,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 		ps.setString(3, moviereview.getCreatetime());
 		ps.setString(4, moviereview.getReviewcontent());
 		ps.setInt(5, moviereview.getLikecount());
-		ps.setInt(6, moviereview.getUnlikecount());
+		ps.setInt(6, moviereview.getDislikecount());
 		i = ps.executeUpdate();
 		ps.close();
 		conn.close();
@@ -54,7 +54,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 		ps.setString(3, moviereview.getCreatetime());
 		ps.setString(4, moviereview.getReviewcontent());
 		ps.setInt(5, moviereview.getLikecount());
-		ps.setInt(6, moviereview.getUnlikecount());
+		ps.setInt(6, moviereview.getDislikecount());
 		ps.setInt(7, moviereview.getMoviereviewid());
 		i = ps.executeUpdate();
 		ps.close();
@@ -105,7 +105,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 			moviereview.setCreatetime(rs.getString("createtime"));
 			moviereview.setReviewcontent(rs.getString("reviewcontent"));
 			moviereview.setLikecount(rs.getInt("likecount"));
-			moviereview.setUnlikecount(rs.getInt("unlikecount"));
+			moviereview.setDislikecount(rs.getInt("unlikecount"));
 		}
 		rs.close();
 		ps.close();
@@ -137,7 +137,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 			moviereview.setCreatetime(rs.getString("createtime"));
 			moviereview.setReviewcontent(rs.getString("reviewcontent"));
 			moviereview.setLikecount(rs.getInt("likecount"));
-			moviereview.setUnlikecount(rs.getInt("unlikecount"));
+			moviereview.setDislikecount(rs.getInt("unlikecount"));
 			all.add(moviereview);
 		}
 		rs.close();
@@ -170,7 +170,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 			moviereview.setCreatetime(rs.getString("createtime"));
 			moviereview.setReviewcontent(rs.getString("reviewcontent"));
 			moviereview.setLikecount(rs.getInt("likecount"));
-			moviereview.setUnlikecount(rs.getInt("unlikecount"));
+			moviereview.setDislikecount(rs.getInt("unlikecount"));
 			all.add(moviereview);
 		}
 		rs.close();

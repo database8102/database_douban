@@ -3,7 +3,8 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import member.cast;
+import bean.Cast;
+
 
 public interface CastDAO {
 	public int insertCast(Cast cast) throws SQLException;

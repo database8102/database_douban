@@ -7,8 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import member.user;
+import bean.User;
 
 public class UserDAOMSI extends DAOBase implements UserDAO {
 

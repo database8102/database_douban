@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import member.moviecomment;
+import bean.MovieComment;
 
 public class MovieCommentDAOMSI extends DAOBase implements MovieCommentDAO {
 

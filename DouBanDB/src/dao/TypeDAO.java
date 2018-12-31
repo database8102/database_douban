@@ -3,7 +3,7 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import member.type;
+import bean.Type;
 
 public interface TypeDAO {
 	public int insertType(Type type) throws SQLException;

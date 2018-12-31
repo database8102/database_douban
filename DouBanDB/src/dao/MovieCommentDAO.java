@@ -3,7 +3,7 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import member.moviecomment;
+import bean.MovieComment;
 
 public interface MovieCommentDAO {
 	public int insertMoviecomment(MovieComment moviecomment) throws SQLException;

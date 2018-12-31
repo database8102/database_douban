@@ -3,7 +3,7 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import member.user;
+import bean.User;
 
 public interface UserDAO {
 	public int insertUser(User user) throws SQLException;
