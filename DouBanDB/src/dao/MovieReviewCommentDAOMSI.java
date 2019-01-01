@@ -12,7 +12,7 @@ import bean.MovieReviewComment;
 public class MovieReviewCommentDAOMSI extends DAOBase implements MovieReviewCommentDAO {
 
 	
-	private static final String insertMoviereviewcomment_SQL = "INSERT INTO moviereviewcomment(moviereviewid,userid,createtime) VALUES(?,?,?)";
+	private static final String insertMoviereviewcomment_SQL = "INSERT INTO moviereviewcomment(moviereviewid,userid,rccontent) VALUES(?,?,?)";
 	/**
 	 * 插入moviereviewcomment
 	 * @param moviereviewcomment 传入要插入的moviereviewcomment
@@ -27,7 +27,7 @@ public class MovieReviewCommentDAOMSI extends DAOBase implements MovieReviewComm
 		ps = conn.prepareStatement(insertMoviereviewcomment_SQL);
 		ps.setInt(1, moviereviewcomment.getMoviereviewid());
 		ps.setInt(2, moviereviewcomment.getUserid());
-		ps.setString(3, moviereviewcomment.getCreatetime());
+		ps.setString(3, moviereviewcomment.getRccontent());
 		i = ps.executeUpdate();
 		ps.close();
 		conn.close();
@@ -35,7 +35,7 @@ public class MovieReviewCommentDAOMSI extends DAOBase implements MovieReviewComm
 	}
 
 	
-	private static final String updateMoviereviewcomment_SQL = "UPDATE moviereviewcomment SET moviereviewid =?,userid =?,createtime =? WHERE moviereviewcommentid =?";
+	private static final String updateMoviereviewcomment_SQL = "UPDATE moviereviewcomment SET moviereviewid =?,userid =?,createtime =?,rccontent =? WHERE moviereviewcommentid =?";
 	/**
 	 * 更新moviereviewcomment
 	 * @param moviereviewcomment 传入要更新的moviereviewcomment
@@ -51,7 +51,8 @@ public class MovieReviewCommentDAOMSI extends DAOBase implements MovieReviewComm
 		ps.setInt(1, moviereviewcomment.getMoviereviewid());
 		ps.setInt(2, moviereviewcomment.getUserid());
 		ps.setString(3, moviereviewcomment.getCreatetime());
-		ps.setInt(4, moviereviewcomment.getMoviereviewcommentid());
+		ps.setString(4, moviereviewcomment.getRccontent());
+		ps.setInt(5, moviereviewcomment.getMoviereviewcommentid());
 		i = ps.executeUpdate();
 		ps.close();
 		conn.close();
@@ -101,6 +102,7 @@ public class MovieReviewCommentDAOMSI extends DAOBase implements MovieReviewComm
 			moviereviewcomment.setMoviereviewid(rs.getInt("moviereviewid"));
 			moviereviewcomment.setUserid(rs.getInt("userid"));
 			moviereviewcomment.setCreatetime(rs.getString("createtime"));
+			moviereviewcomment.setRccontent(rs.getString("rccontent"));
 		}
 		rs.close();
 		ps.close();
@@ -131,6 +133,7 @@ public class MovieReviewCommentDAOMSI extends DAOBase implements MovieReviewComm
 			moviereviewcomment.setMoviereviewid(rs.getInt("moviereviewid"));
 			moviereviewcomment.setUserid(rs.getInt("userid"));
 			moviereviewcomment.setCreatetime(rs.getString("createtime"));
+			moviereviewcomment.setRccontent(rs.getString("rccontent"));
 			all.add(moviereviewcomment);
 		}
 		rs.close();
@@ -162,6 +165,7 @@ public class MovieReviewCommentDAOMSI extends DAOBase implements MovieReviewComm
 			moviereviewcomment.setMoviereviewid(rs.getInt("moviereviewid"));
 			moviereviewcomment.setUserid(rs.getInt("userid"));
 			moviereviewcomment.setCreatetime(rs.getString("createtime"));
+			moviereviewcomment.setRccontent(rs.getString("rccontent"));
 			all.add(moviereviewcomment);
 		}
 		rs.close();
