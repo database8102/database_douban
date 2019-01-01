@@ -11,12 +11,13 @@ import bean.Actor;
 
 public class ActorDAOMSI extends DAOBase implements ActorDAO {
 
+	
+	private static final String insertActor_SQL = "INSERT INTO actorinfo(chinesename,name,IMDbid,sex,birthday,profile,image) VALUES(?,?,?,?,?,?,?)";
 	/**
 	 * 插入actor
 	 * @param actor 传入要插入的actor
 	 * @return 插入到数据库的记录数--如果插入了一条记录就返回1，若是没有成功插入则返回0
 	 */
-	private static final String insertActor_SQL = "INSERT INTO actorinfo(chinesename,name,IMDbid,sex,birthday,profile,image) VALUES(?,?,?,?,?,?,?)";
 	@Override
 	public int insertActor(Actor actor) throws SQLException {
 		int i = 0;
@@ -37,12 +38,13 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 		return i;
 	}
 
+	
+	private static final String updateActor_SQL = "UPDATE actorinfo SET chinesename =?,name =?,IMDbid =?,sex =?,birthday =?,profile =?,image =? WHERE actorid =?";
 	/**
 	 * 更新actor
 	 * @param actor 传入要更新的actor
 	 * @return 从数据库更新的记录数--如果更新了一条记录就返回1，若是没有成功更新则返回0
 	 */
-	private static final String updateActor_SQL = "UPDATE actorinfo SET chinesename =?,name =?,IMDbid =?,sex =?,birthday =?,profile =?,image =? WHERE actorid =?";
 	@Override
 	public int updateActor(Actor actor) throws SQLException {
 		int i = 0;
@@ -64,12 +66,13 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 		return i;
 	}
 
+	
+	private static final String deleteActor_SQL = "DELETE FROM actorinfo WHERE actorid =?";
 	/**
 	 * 删除actor
 	 * @param actorid 
 	 * @return 删除的记录数--如果删除了一条记录就返回1，若是没有成功删除则返回0
 	 */
-	private static final String deleteActor_SQL = "DELETE FROM actorinfo WHERE actorid =?";
 	@Override
 	public int deleteActor(int actorid) throws SQLException {
 		int i = 0;
@@ -84,12 +87,13 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 		return i;
 	}
 
+	
+	private static final String getActorById_SQL = "SELECT * FROM actorinfo WHERE actorid =?";
 	/**
 	 * 根据actorid的唯一查询
 	 * @param actorid 通过actorid查询数据库
 	 * @return actor的一个实例化对象,如果查找到了就返回的是数据库中的一条记录，否则就是null
 	 */
-	private static final String getActorById_SQL = "SELECT * FROM actorinfo WHERE actorid =?";
 	@Override
 	public Actor getActorById(int actorid) throws SQLException {
 		Actor actor = new Actor();
@@ -116,11 +120,12 @@ public class ActorDAOMSI extends DAOBase implements ActorDAO {
 		return actor;
 	}
 
+	
+	private static final String getAllActor_SQL = "SELECT * FROM actorinfo ";
 	/**
 	 * 查询所有actor
 	 * @return actor的一个List对象,如果查找到了就返回的是数据库中的一条或多条记录，否则就是List为空
 	 */
-	private static final String getAllActor_SQL = "SELECT * FROM actorinfo ";
 	@Override
 	public List<Actor> getAllActor() throws SQLException {
 		List<Actor> all = new ArrayList<Actor>();

@@ -11,12 +11,13 @@ import bean.MovieReview;
 
 public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 
+	
+	private static final String insertMoviereview_SQL = "INSERT INTO moviereview(topicid,userid,createtime,reviewcontent,likecount,unlikecount) VALUES(?,?,?,?,?,?)";
 	/**
 	 * 插入moviereview
 	 * @param moviereview 传入要插入的moviereview
 	 * @return 插入到数据库的记录数--如果插入了一条记录就返回1，若是没有成功插入则返回0
 	 */
-	private static final String insertMoviereview_SQL = "INSERT INTO moviereview(topicid,userid,createtime,reviewcontent,likecount,unlikecount) VALUES(?,?,?,?,?,?)";
 	@Override
 	public int insertMoviereview(MovieReview moviereview) throws SQLException {
 		int i = 0;
@@ -36,12 +37,13 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 		return i;
 	}
 
+	
+	private static final String updateMoviereview_SQL = "UPDATE moviereview SET topicid =?,userid =?,createtime =?,reviewcontent =?,likecount =?,unlikecount =? WHERE moviereviewid =?";
 	/**
 	 * 更新moviereview
 	 * @param moviereview 传入要更新的moviereview
 	 * @return 从数据库更新的记录数--如果更新了一条记录就返回1，若是没有成功更新则返回0
 	 */
-	private static final String updateMoviereview_SQL = "UPDATE moviereview SET topicid =?,userid =?,createtime =?,reviewcontent =?,likecount =?,unlikecount =? WHERE moviereviewid =?";
 	@Override
 	public int updateMoviereview(MovieReview moviereview) throws SQLException {
 		int i = 0;
@@ -62,12 +64,13 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 		return i;
 	}
 
+	
+	private static final String deleteMoviereview_SQL = "DELETE FROM moviereview WHERE moviereviewid =?";
 	/**
 	 * 删除moviereview
 	 * @param moviereviewid 
 	 * @return 删除的记录数--如果删除了一条记录就返回1，若是没有成功删除则返回0
 	 */
-	private static final String deleteMoviereview_SQL = "DELETE FROM moviereview WHERE moviereviewid =?";
 	@Override
 	public int deleteMoviereview(int moviereviewid) throws SQLException {
 		int i = 0;
@@ -82,12 +85,13 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 		return i;
 	}
 
+	
+	private static final String getMoviereviewById_SQL = "SELECT * FROM moviereview WHERE moviereviewid =?";
 	/**
 	 * 根据moviereviewid的唯一查询
 	 * @param moviereviewid 通过moviereviewid查询数据库
 	 * @return moviereview的一个实例化对象,如果查找到了就返回的是数据库中的一条记录，否则就是null
 	 */
-	private static final String getMoviereviewById_SQL = "SELECT * FROM moviereview WHERE moviereviewid =?";
 	@Override
 	public MovieReview getMoviereviewById(int moviereviewid) throws SQLException {
 		MovieReview moviereview = new MovieReview();
@@ -113,16 +117,16 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 		return moviereview;
 	}
 
+	
+	private static final String getMoviereviewByTopicId_SQL = "SELECT * FROM moviereview WHERE topicid =?";
 	/**
 	 * 根据topicid的查询
 	 * @param topicid 通过topicid查询数据库
 	 * @return moviereview的一个List对象,如果查找到了就返回的是数据库中的一条或多条记录，否则就是List为空
 	 */
-	private static final String getMoviereviewByTopicId_SQL = "SELECT * FROM moviereview WHERE topicid =?";
 	@Override
 	public List<MovieReview> getMoviereviewByTopicId(int topicid) throws SQLException {
 		List<MovieReview> all = new ArrayList<MovieReview>();
-		MovieReview moviereview = new MovieReview();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -131,6 +135,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 		ps.setInt(1, topicid);
 		rs = ps.executeQuery();
 		while(rs.next()) {
+			MovieReview moviereview = new MovieReview();
 			moviereview.setMoviereviewid(rs.getInt("moviereviewid"));
 			moviereview.setTopicid(rs.getInt("topicid"));
 			moviereview.setUserid(rs.getInt("userid"));
@@ -146,16 +151,16 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 		return all;
 	}
 
+	
+	private static final String getMoviereviewByUserId_SQL = "SELECT * FROM moviereview WHERE userid =?";
 	/**
 	 * 根据userid的查询
 	 * @param userid 通过userid查询数据库
 	 * @return moviereview的一个List对象,如果查找到了就返回的是数据库中的一条或多条记录，否则就是List为空
 	 */
-	private static final String getMoviereviewByUserId_SQL = "SELECT * FROM moviereview WHERE userid =?";
 	@Override
 	public List<MovieReview> getMoviereviewByUserId(int userid) throws SQLException {
 		List<MovieReview> all = new ArrayList<MovieReview>();
-		MovieReview moviereview = new MovieReview();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -164,6 +169,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 		ps.setInt(1, userid);
 		rs = ps.executeQuery();
 		while(rs.next()) {
+			MovieReview moviereview = new MovieReview();
 			moviereview.setMoviereviewid(rs.getInt("moviereviewid"));
 			moviereview.setTopicid(rs.getInt("topicid"));
 			moviereview.setUserid(rs.getInt("userid"));

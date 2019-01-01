@@ -11,12 +11,13 @@ import bean.User;
 
 public class UserDAOMSI extends DAOBase implements UserDAO {
 
+	
+	private static final String insertUser_SQL = "INSERT INTO userinfo(username,password,nickname,email,areacode,phone,wechat,weibo,qq,image) VALUES(?,?,?,?,?,?,?,?,?,?)";
 	/**
 	 * 插入user
 	 * @param user 传入要插入的user
 	 * @return 插入到数据库的记录数--如果插入了一条记录就返回1，若是没有成功插入则返回0
 	 */
-	private static final String insertUser_SQL = "INSERT INTO userinfo(username,password,nickname,email,areacode,phone,wechat,weibo,qq,image) VALUES(?,?,?,?,?,?,?,?,?,?)";
 	@Override
 	public int insertUser(User user) throws SQLException{
 		int i = 0;
@@ -40,12 +41,13 @@ public class UserDAOMSI extends DAOBase implements UserDAO {
 		return i;
 	}
 	
+	
+	private static final String updateUser_SQL = "UPDATE userinfo SET username =?,password =?,nickname =?,email =?,areacode =?,phone =?,wechat =?,weibo =?,qq =?,image =? WHERE userid =?";
 	/**
 	 * 更新user
 	 * @param user 传入要更新的user
 	 * @return 从数据库更新的记录数--如果更新了一条记录就返回1，若是没有成功更新则返回0
 	 */
-	private static final String updateUser_SQL = "UPDATE userinfo SET username =?,password =?,nickname =?,email =?,areacode =?,phone =?,wechat =?,weibo =?,qq =?,image =? WHERE userid =?";
 	@Override
 	public int updateUser(User user) throws SQLException{
 		int i = 0;
@@ -70,12 +72,13 @@ public class UserDAOMSI extends DAOBase implements UserDAO {
 		return i;
 	}
 
+	
+	private static final String deleteUser_SQL = "DELETE FROM userinfo WHERE userid =?";
 	/**
 	 * 删除user
 	 * @param userid 
 	 * @return 删除的记录数--如果删除了一条记录就返回1，若是没有成功删除则返回0
 	 */
-	private static final String deleteUser_SQL = "DELETE FROM userinfo WHERE userid =?";
 	@Override
 	public int deleteUser(int userid) throws SQLException{
 		int i = 0;
@@ -90,12 +93,13 @@ public class UserDAOMSI extends DAOBase implements UserDAO {
 		return i;
 	}
 
+	
+	private static final String getUserById_SQL = "SELECT * FROM userinfo WHERE userid =?";
 	/**
 	 * 根据userid的唯一查询
 	 * @param userid 通过userid查询数据库
 	 * @return user的一个实例化对象,如果查找到了就返回的是数据库中的一条记录，否则就是null
 	 */
-	private static final String getUserById_SQL = "SELECT * FROM userinfo WHERE userid =?";
 	@Override
 	public User getUserById(int userid) throws SQLException{
 		User user = new User();
@@ -125,11 +129,12 @@ public class UserDAOMSI extends DAOBase implements UserDAO {
 		return user;
 	}
 
+	
+	private static final String getAllUser_SQL = "SELECT * FROM userinfo ";
 	/**
 	 * 查询所有user
 	 * @return user的一个List对象,如果查找到了就返回的是数据库中的一条或多条记录，否则就是List为空
 	 */
-	private static final String getAllUser_SQL = "SELECT * FROM userinfo ";
 	@Override
 	public List<User> getAllUser() throws SQLException{
 		List<User> userList=new ArrayList<User>();
@@ -160,12 +165,13 @@ public class UserDAOMSI extends DAOBase implements UserDAO {
 		return userList;
 	}
 
+	
+	private static final String getUserByEmail_SQL = "SELECT * FROM userinfo WHERE email =?";
 	/**
 	 * 根据email的唯一查询
 	 * @param email 通过email查询数据库
 	 * @return user的一个实例化对象,如果查找到了就返回的是数据库中的一条记录，否则就是null
 	 */
-	private static final String getUserByEmail_SQL = "SELECT * FROM userinfo WHERE email =?";
 	@Override
 	public User getUserByEmail(String email) throws SQLException{
 		User user = new User();
