@@ -12,7 +12,7 @@ import bean.MovieReview;
 public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 
 	
-	private static final String insertMoviereview_SQL = "INSERT INTO moviereview(topicid,userid,createtime,reviewcontent,likecount,unlikecount) VALUES(?,?,?,?,?,?)";
+	private static final String insertMoviereview_SQL = "INSERT INTO moviereview(topicid,userid,reviewcontent) VALUES(?,?,?)";
 	/**
 	 * 插入moviereview
 	 * @param moviereview 传入要插入的moviereview
@@ -27,10 +27,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 		ps = conn.prepareStatement(insertMoviereview_SQL);
 		ps.setInt(1, moviereview.getTopicid());
 		ps.setInt(2, moviereview.getUserid());
-		ps.setString(3, moviereview.getCreatetime());
-		ps.setString(4, moviereview.getReviewcontent());
-		ps.setInt(5, moviereview.getLikecount());
-		ps.setInt(6, moviereview.getDislikecount());
+		ps.setString(3, moviereview.getReviewcontent());
 		i = ps.executeUpdate();
 		ps.close();
 		conn.close();
@@ -38,7 +35,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 	}
 
 	
-	private static final String updateMoviereview_SQL = "UPDATE moviereview SET topicid =?,userid =?,createtime =?,reviewcontent =?,likecount =?,unlikecount =? WHERE moviereviewid =?";
+	private static final String updateMoviereview_SQL = "UPDATE moviereview SET topicid =?,userid =?,createtime =?,reviewcontent =?,likecount =?,dislikecount =? WHERE moviereviewid =?";
 	/**
 	 * 更新moviereview
 	 * @param moviereview 传入要更新的moviereview
@@ -109,7 +106,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 			moviereview.setCreatetime(rs.getString("createtime"));
 			moviereview.setReviewcontent(rs.getString("reviewcontent"));
 			moviereview.setLikecount(rs.getInt("likecount"));
-			moviereview.setDislikecount(rs.getInt("unlikecount"));
+			moviereview.setDislikecount(rs.getInt("dislikecount"));
 		}
 		rs.close();
 		ps.close();
@@ -142,7 +139,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 			moviereview.setCreatetime(rs.getString("createtime"));
 			moviereview.setReviewcontent(rs.getString("reviewcontent"));
 			moviereview.setLikecount(rs.getInt("likecount"));
-			moviereview.setDislikecount(rs.getInt("unlikecount"));
+			moviereview.setDislikecount(rs.getInt("dislikecount"));
 			all.add(moviereview);
 		}
 		rs.close();
@@ -176,7 +173,7 @@ public class MovieReviewDAOMSI extends DAOBase implements MovieReviewDAO {
 			moviereview.setCreatetime(rs.getString("createtime"));
 			moviereview.setReviewcontent(rs.getString("reviewcontent"));
 			moviereview.setLikecount(rs.getInt("likecount"));
-			moviereview.setDislikecount(rs.getInt("unlikecount"));
+			moviereview.setDislikecount(rs.getInt("dislikecount"));
 			all.add(moviereview);
 		}
 		rs.close();

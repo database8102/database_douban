@@ -9,7 +9,30 @@ public class MovieReview {
 	private int likecount;
 	private int dislikecount;
 	
+	public MovieReview(){}
 	
+	public MovieReview(int topicid, int userid, String reviewcontent) {
+		super();
+		this.topicid = topicid;
+		this.userid = userid;
+		this.reviewcontent = reviewcontent;
+	}
+
+	public MovieReview(int moviereviewid, int topicid, int userid,
+			String createtime, String reviewcontent, int likecount,
+			int dislikecount) {
+		super();
+		this.moviereviewid = moviereviewid;
+		this.topicid = topicid;
+		this.userid = userid;
+		this.createtime = createtime;
+		this.reviewcontent = reviewcontent;
+		this.likecount = likecount;
+		this.dislikecount = dislikecount;
+	}
+
+
+
 	public int getMoviereviewid() {
 		return moviereviewid;
 	}
