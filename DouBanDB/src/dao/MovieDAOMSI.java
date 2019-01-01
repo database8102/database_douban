@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import bean.Movie;
 
@@ -133,8 +134,8 @@ public class MovieDAOMSI extends DAOBase implements MovieDAO {
 	 */
 	private static final String getAllMovie_SQL = "SELECT * FROM movieinfo ";
 	@Override
-	public ArrayList<Movie> getAllMovie() throws SQLException {
-		ArrayList<Movie> movieList=new ArrayList<Movie>();
+	public List<Movie> getAllMovie() throws SQLException {
+		List<Movie> movieList=new ArrayList<Movie>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

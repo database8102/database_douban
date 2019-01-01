@@ -3,7 +3,7 @@ package test;
 import static org.junit.Assert.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -60,7 +60,7 @@ public class TypeDAOTest {
 	public void testGetAllType() {
 		TypeDAOMSI dao=new TypeDAOMSI();
 		try {
-			ArrayList<Type> types=dao.getAllType();
+			List<Type> types=dao.getAllType();
 			for(int i=0;i<types.size();i++)
 			{
 				System.out.print("typeid: "+types.get(i).getTypeid());

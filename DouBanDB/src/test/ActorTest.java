@@ -3,7 +3,7 @@ package test;
 import static org.junit.Assert.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -61,7 +61,7 @@ public class ActorTest {
 	public void testGetAllActor() {
 		ActorDAOMSI dao=new ActorDAOMSI();
 		try {
-			ArrayList<Actor> actors=dao.getAllActor();
+			List<Actor> actors=dao.getAllActor();
 			for(int i=0;i<actors.size();i++)
 			{
 				System.out.print("actorid: "+actors.get(i).getActorid());

@@ -3,7 +3,7 @@ package test;
 import static org.junit.Assert.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -65,7 +65,7 @@ public class UserDAOTest {
 	public void testGetAllUser() {
 		UserDAOMSI dao=new UserDAOMSI();
 		try {
-			ArrayList<User> users=dao.getAllUser();
+			List<User> users=dao.getAllUser();
 			for(int i=0;i<users.size();i++)
 			{
 				System.out.print("userid: "+users.get(i).getUserid());

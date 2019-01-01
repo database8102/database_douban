@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import bean.Cast;
 
@@ -83,8 +84,8 @@ public class CastDAOMSI extends DAOBase implements CastDAO {
 	 */
 	private static final String getCastByMovieId_SQL = "SELECT * FROM cast WHERE movieid =?";
 	@Override
-	public ArrayList<Cast> getCastByMovieId(int movieid) throws SQLException {
-		ArrayList<Cast> all = new ArrayList<Cast>();
+	public List<Cast> getCastByMovieId(int movieid) throws SQLException {
+		List<Cast> all = new ArrayList<Cast>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -113,8 +114,8 @@ public class CastDAOMSI extends DAOBase implements CastDAO {
 	 */
 	private static final String getCastByActorId_SQL = "SELECT * FROM cast WHERE actorid =?";
 	@Override
-	public ArrayList<Cast> getCastByActorId(int actorid) throws SQLException {
-		ArrayList<Cast> all = new ArrayList<Cast>();
+	public List<Cast> getCastByActorId(int actorid) throws SQLException {
+		List<Cast> all = new ArrayList<Cast>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

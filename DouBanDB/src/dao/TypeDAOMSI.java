@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import bean.Type;
 
@@ -103,8 +104,8 @@ public class TypeDAOMSI extends DAOBase implements TypeDAO {
 	 */
 	private static final String getAllType_SQL = "SELECT * FROM typeinfo ";
 	@Override
-	public ArrayList<Type> getAllType() throws SQLException {
-		ArrayList<Type> typeList=new ArrayList<Type>();
+	public List<Type> getAllType() throws SQLException {
+		List<Type> typeList=new ArrayList<Type>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

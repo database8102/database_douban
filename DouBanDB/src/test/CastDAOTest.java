@@ -3,7 +3,7 @@ package test;
 import static org.junit.Assert.*;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -48,7 +48,7 @@ public class CastDAOTest {
 	public void testGetCastByMovieId() {
 		CastDAOMSI dao=new CastDAOMSI();
 		try {
-			ArrayList<Cast> casts=dao.getCastByMovieId(2);
+			List<Cast> casts=dao.getCastByMovieId(2);
 			for(int i=0;i<casts.size();i++)
 			{
 				System.out.println("castid: "+casts.get(i).getCastid());
@@ -65,7 +65,7 @@ public class CastDAOTest {
 	public void testGetCastByActorId() {
 		CastDAOMSI dao=new CastDAOMSI();
 		try {
-			ArrayList<Cast> casts=dao.getCastByActorId(8);
+			List<Cast> casts=dao.getCastByActorId(8);
 			for(int i=0;i<casts.size();i++)
 			{
 				System.out.println("castid: "+casts.get(i).getCastid());
