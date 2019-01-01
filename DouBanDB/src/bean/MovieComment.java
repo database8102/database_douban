@@ -14,7 +14,7 @@ public class MovieComment {
 	public MovieComment(){}
 	
 	public MovieComment(int userid, int movieid, double score,
-			String commentcontent, Integer likecount, String date, String device,
+			String commentcontent, Integer likecount, String device,
 			String type) {
 		super();
 		this.userid = userid;
@@ -25,7 +25,6 @@ public class MovieComment {
 			this.likecount=0;
 		else
 			this.likecount = likecount;
-		this.date = date;
 		this.device = device;
 		this.type = type;
 	}

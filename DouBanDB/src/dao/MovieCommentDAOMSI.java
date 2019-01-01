@@ -12,7 +12,7 @@ import bean.MovieComment;
 public class MovieCommentDAOMSI extends DAOBase implements MovieCommentDAO {
 
 	
-	private static final String insertMoviecomment_SQL = "INSERT INTO moviecomment(userid,movieid,score,commentcontent,likecount,date,device,type) VALUES(?,?,?,?,?,?,?,?)";
+	private static final String insertMoviecomment_SQL = "INSERT INTO moviecomment(userid,movieid,score,commentcontent,likecount,device,type) VALUES(?,?,?,?,?,?,?)";
 	@Override
 	public int insertMoviecomment(MovieComment moviecomment) throws SQLException {
 		int i = 0;
@@ -25,9 +25,8 @@ public class MovieCommentDAOMSI extends DAOBase implements MovieCommentDAO {
 		ps.setDouble(3, moviecomment.getScore());
 		ps.setString(4, moviecomment.getCommentcontent());
 		ps.setInt(5, moviecomment.getLikecount());
-		ps.setString(6, moviecomment.getDate());
-		ps.setString(7, moviecomment.getDevice());
-		ps.setString(8, moviecomment.getType());
+		ps.setString(6, moviecomment.getDevice());
+		ps.setString(7, moviecomment.getType());
 		i = ps.executeUpdate();
 		ps.close();
 		conn.close();
