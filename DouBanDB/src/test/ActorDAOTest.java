@@ -10,7 +10,7 @@ import org.junit.Test;
 import dao.ActorDAOMSI;
 import bean.Actor;
 
-public class ActorTest {
+public class ActorDAOTest {
 
 	@Test
 	public void testInsertActor() {

@@ -6,12 +6,48 @@ public class MovieComment {
 	private int movieid;
 	private double score;
 	private String commentcontent;
-	private int likecount;
+	private Integer likecount;
 	private String date;
 	private String device;
 	private String type;
 	
+	public MovieComment(){}
 	
+	public MovieComment(int userid, int movieid, double score,
+			String commentcontent, Integer likecount, String date, String device,
+			String type) {
+		super();
+		this.userid = userid;
+		this.movieid = movieid;
+		this.score = score;
+		this.commentcontent = commentcontent;
+		if(likecount==null)
+			this.likecount=0;
+		else
+			this.likecount = likecount;
+		this.date = date;
+		this.device = device;
+		this.type = type;
+	}
+
+	public MovieComment(int commentid, int userid, int movieid, double score,
+			String commentcontent, Integer likecount, String date, String device,
+			String type) {
+		super();
+		this.commentid = commentid;
+		this.userid = userid;
+		this.movieid = movieid;
+		this.score = score;
+		this.commentcontent = commentcontent;
+		if(likecount==null)
+			this.likecount=0;
+		else
+			this.likecount = likecount;
+		this.date = date;
+		this.device = device;
+		this.type = type;
+	}
+
 	public int getCommentid() {
 		return commentid;
 	}
@@ -42,10 +78,10 @@ public class MovieComment {
 	public void setCommentcontent(String commentcontent) {
 		this.commentcontent = commentcontent;
 	}
-	public int getLikecount() {
+	public Integer getLikecount() {
 		return likecount;
 	}
-	public void setLikecount(int likecount) {
+	public void setLikecount(Integer likecount) {
 		this.likecount = likecount;
 	}
 	public String getDate() {

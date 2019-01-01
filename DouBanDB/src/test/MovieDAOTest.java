@@ -10,7 +10,7 @@ import org.junit.Test;
 import bean.Movie;
 import dao.MovieDAOMSI;
 
-public class MovieTest {
+public class MovieDAOTest {
 
 	@Test
 	public void testInsertMovie() {
