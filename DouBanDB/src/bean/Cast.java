@@ -6,7 +6,23 @@ public class Cast {
 	private int actorid;
 	private String role;
 	
+	public Cast(){}
 	
+	public Cast(int movieid, int actorid, String role) {
+		super();
+		this.movieid = movieid;
+		this.actorid = actorid;
+		this.role = role;
+	}
+	
+	public Cast(int castid, int movieid, int actorid, String role) {
+		super();
+		this.castid = castid;
+		this.movieid = movieid;
+		this.actorid = actorid;
+		this.role = role;
+	}
+
 	public int getCastid() {
 		return castid;
 	}
