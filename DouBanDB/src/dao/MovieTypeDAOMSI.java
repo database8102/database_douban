@@ -108,20 +108,20 @@ public class MovieTypeDAOMSI extends DAOBase implements MovieTypeDAO {
 	}
 
 	
-	private static final String getMovietypeByActorId_SQL = "SELECT * FROM movietype WHERE typeid =?";
+	private static final String getMovietypeByTypeId_SQL = "SELECT * FROM movietype WHERE typeid =?";
 	/**
 	 * 根据typeid的查询
 	 * @param typeid 通过typeid查询数据库
 	 * @return movietype的一个List对象,如果查找到了就返回的是数据库中的一条或多条记录，否则就是List为空
 	 */
 	@Override
-	public List<MovieType> getMovietypeByActorId(int typeid) throws SQLException {
+	public List<MovieType> getMovietypeByTypeId(int typeid) throws SQLException {
 		List<MovieType> all = new ArrayList<MovieType>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		conn = getConnection();
-		ps = conn.prepareStatement(getMovietypeByActorId_SQL);
+		ps = conn.prepareStatement(getMovietypeByTypeId_SQL);
 		ps.setInt(1, typeid);
 		rs = ps.executeQuery();
 		while(rs.next()) {
