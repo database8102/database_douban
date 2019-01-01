@@ -5,7 +5,27 @@ public class Topic {
 	private String topic;
 	private int count;
 	
+	public Topic(){}
 	
+	public Topic(String topic, Integer count) {
+		super();
+		this.topic = topic;
+		if(count==null)
+			this.count=0;
+		else
+			this.count = count;
+	}
+
+	public Topic(int topicid, String topic, Integer count) {
+		super();
+		this.topicid = topicid;
+		this.topic = topic;
+		if(count==null)
+			this.count=0;
+		else
+			this.count = count;
+	}
+
 	public int getTopicid() {
 		return topicid;
 	}

@@ -37,7 +37,10 @@ public class MovieTypeDAOMSI extends DAOBase implements MovieTypeDAO {
 	private static final String updateMovietype_SQL = "UPDATE movietype SET movieid =?,typeid =? WHERE movieid =? AND typeid =?";
 	/**
 	 * 更新movietype
-	 * @param movietype 传入要更新的movietype
+	 * @param newmovieid 传入要更新的movieid
+	 * @param newtypeid 传入要更新的typeid
+	 * @param oldmovieid 传入旧的movieid，用于寻找要修改的记录
+	 * @param oldtypeid 传入旧的typeid，用于寻找要修改的记录
 	 * @return 从数据库更新的记录数--如果更新了一条记录就返回1，若是没有成功更新则返回0
 	 */
 	@Override
